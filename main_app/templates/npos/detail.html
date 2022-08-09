@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/npos/npo-detail.css' %}">
+{% endblock head %}
+
+{% block content %}
+<section class="npo-container">
+  <div class="npo-img">
+    IMAGE
+    {% comment %} <img src="" alt=""> {% endcomment %}
+  </div>
+  <div class="npo-details">
+    <h1>{{ npo.name }}</h1>
+    <h2>{{ npo.get_topic_display }}</h2>
+    <h3><a href="{{npo.website}}">{{ npo.website }}</a></h3>
+    <p>{{ npo.description }}</p>
+    <p>Added by {{ npo.user }}</p>
+  </div>
+
+</section>
+
+{% endblock content %}

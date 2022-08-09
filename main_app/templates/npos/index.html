@@ -2,5 +2,31 @@
 {% load static %}
 
 {% block head %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/npos/npo-index.css' %}">
 {% endblock head %}
+
+{% block content %}
+<section class="page-header">
+  <h1>All Non-Profits</h1>
+</section>
+
+<section class='card-container'>
+  {% for npo in npos %}
+    <div class='card'>
+      <a href="{% url 'npos_detail' npo.id%}">
+        <div class="card-content">
+          <div class="card-img-container">
+            IMAGE
+            {% comment %} add image below {% endcomment %}
+            {% comment %} <img src="" alt=""> {% endcomment %}
+          </div>
+          <h2 class="card-title">{{ npo.name }}</h2>
+          <p>{{ npo.get_topic_display }}</p>
+          <p>{{ npo.website }}</p>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</section>
+{% endblock content %}
+

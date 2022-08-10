@@ -27,3 +27,7 @@ class NPO(models.Model):
 
   def __str__(self):
     return f'{self.name} represents {self.get_topic_display()}'
+  
+  def get_absolute_url(self):
+      return reverse('npos_detail', kwargs={'npo_id': self.id})
+  

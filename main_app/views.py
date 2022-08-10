@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import NPO
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 def home(request):
@@ -16,4 +16,13 @@ def npos_detail(request, npo_id):
 
 class NPOCreate(CreateView):
   model = NPO
-  fields = '__all__'
+  fields = ['name', 'topic', 'description', 'website']
+  success_url = '/npos/'
+
+class NPOUpdate(UpdateView):
+  model = NPO
+  fields = ['topic', 'description', 'website']
+
+class NPODelete(DeleteView):
+  model = NPO
+  success_url = '/npos/'

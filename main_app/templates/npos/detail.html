@@ -16,7 +16,10 @@
     <h2>{{ npo.get_topic_display }}</h2>
     <h3><a href="{{npo.website}}">{{ npo.website }}</a></h3>
     <p>{{ npo.description }}</p>
-    <p>Added by {{ npo.user }}</p>
+    <div class="npo-actions">
+      <a href="{% url 'npos_update' npo.id %}" class="btn warning">Edit</a>
+      <a href="{% url 'npos_delete' npo.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 
 </section>

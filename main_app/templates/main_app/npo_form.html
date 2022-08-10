@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock head %}
+
+{% block content %}
+<div class="page-header">
+  {% if npo %}
+    <h1>Edit {{ npo.name }}</h1>
+  {% else %}
+    <h1>Add NPO</h1>
+  {% endif %}
+  ADD IMAGE
+  {% comment %} <img src="" alt=""> {% endcomment %}
+</div>
+<form action="" method="POST" class="form-container">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit" class="btn submit">Submit</button>
+</form>
+{% endblock content %}

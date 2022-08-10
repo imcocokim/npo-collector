@@ -10,7 +10,11 @@
 
   <form action="" method="POST" class="form">
     {% csrf_token %}
-    <a href="{% url 'npos_index' %}" class="btn secondary">Cancel</a>
+    <a href="{{request.META.HTTP_REFERER}}" class="btn secondary">Cancel</a>
     <button type="submit" class="btn danger">Yes - Delete!</button>
   </form>
 {% endblock content %}
+
+{% comment %} Tried to find a way for "Cancel" button to go back to the original page. {% url 'npos_detail' npo.id%} Didn't work because it didn't know which npo details page to go to.
+found {{request.META.HTTP_REFERER}} on https://www.codegrepper.com/code-examples/python/frameworks/django/back+button+django+template
+And it was able to work. {% endcomment %}

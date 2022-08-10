@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import NPO
 from .forms import EventForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView

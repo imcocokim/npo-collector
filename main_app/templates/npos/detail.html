@@ -45,20 +45,27 @@
       <button type="submit" class="btn submit">Add Event</button>
     </form>
     <h3>Events</h3>
-    <table>
-      <thead>
-        <tr><th>Date</th><th>Events</th></tr>
-      </thead>
-      <tbody>
-        {% for event in npo.event_set.all %}
-        <tr>
-          <td>{{event.date}}</td>
-          <td>{{event.title}}</td>
-          <td><a href="{% url 'events_delete' event.id %}" class="btn danger">Delete</a></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    {% if npo.event_set.all %}
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Events</th></tr>
+        </thead>
+        <tbody>
+          {% for event in npo.event_set.all %}
+          <tr>
+            <td>{{event.date}}</td>
+            <td>{{event.title}}</td>
+            <td><a href="{% url 'events_delete' event.id %}" class="btn danger">Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+    <div class="subsection-content">
+      <p>No events have been added to {{ npo.name }}</p>
+    </div>
+
+    {% endif %}
   </section>
 </div>
 

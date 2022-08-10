@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import NPO
+from .models import NPO, Event
 from .forms import EventForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -36,3 +36,7 @@ def add_event(request, npo_id):
     new_event.npo_id = npo_id
     new_event.save()
   return redirect('npos_detail', npo_id=npo_id)
+
+class EventDelete(DeleteView):
+  model = Event
+  success_url = '/npos/'

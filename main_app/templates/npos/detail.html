@@ -54,6 +54,7 @@
         <tr>
           <td>{{event.date}}</td>
           <td>{{event.title}}</td>
+          <td><a href="{% url 'events_delete' event.id %}" class="btn danger">Delete</a></td>
         </tr>
         {% endfor %}
       </tbody>

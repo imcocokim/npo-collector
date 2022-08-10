@@ -2,10 +2,14 @@ from django.shortcuts import render,redirect
 from .models import NPO, Event
 from .forms import EventForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
-def home(request):
-  return render(request, 'home.html')
+class Home(LoginView):
+  template_name = 'home.html'
+
+def about(request):
+  return render(request, 'about.html')
 
 def npos_index(request):
   npos = NPO.objects.all()

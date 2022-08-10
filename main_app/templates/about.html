@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/> {% endcomment %}
 {% endblock head %}
 
 {% block content %}
@@ -12,16 +12,5 @@
 <h3>Why POTATO?</h3>
 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, deleniti fuga expedita soluta officiis harum natus officia nam aut odit ab, eaque facere architecto, recusandae assumenda! Suscipit distinctio debitis libero.</p>
 
-{% if not user.is_authenticated %}
-  <section>
-    <form action="{% url 'home' %}" method="post" class="login">
-      <h1>Login</h1>
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}">
-      <button type="submit" class="btn submit">Login</button>
-    </form>
-  </section>
-{% endif %}
 
 {% endblock content %}

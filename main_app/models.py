@@ -30,4 +30,11 @@ class NPO(models.Model):
   
   def get_absolute_url(self):
       return reverse('npos_detail', kwargs={'npo_id': self.id})
-  
+
+class Event(models.Model):
+  date = models.DateField()
+  title = models.CharField(max_length=100)
+  npo = models.ForeignKey(NPO, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return f'{self.title} on {self.date}'

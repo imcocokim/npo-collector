@@ -2,7 +2,17 @@
 {% load static %}
 
 {% block head %}
+<link 
+  href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" 
+  rel="stylesheet" 
+/>
+<link rel="stylesheet" href="{% static 'css/mcdp.css' %}">
+<script 
+  src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
+>
+</script>
   <link rel="stylesheet" type="text/css" href="{% static 'css/npos/npo-detail.css' %}">
+  <script defer src="{% static 'js/npo-detail.js' %}"></script>
 {% endblock head %}
 
 {% block content %}
@@ -21,7 +31,34 @@
       <a href="{% url 'npos_delete' npo.id %}" class="btn danger">Delete</a>
     </div>
   </div>
-
 </section>
+<div class="events-container">
+  <section class="events">
+    <div class="subsection-title">
+      <h2>Events</h2>
+      {% comment %} <img src="" alt=""> {% endcomment %}
+    </div>
+    <h3>Add an Event</h3>
+    <form action="{% url 'add_event' npo.id %}" method="POST" class="subsection-content">
+      {% csrf_token %}
+      {{ event_form.as_p }}
+      <button type="submit" class="btn submit">Add Event</button>
+    </form>
+    <h3>Events</h3>
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Events</th></tr>
+      </thead>
+      <tbody>
+        {% for event in npo.event_set.all %}
+        <tr>
+          <td>{{event.date}}</td>
+          <td>{{event.title}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 
 {% endblock content %}

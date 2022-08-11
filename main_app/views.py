@@ -1,4 +1,4 @@
-import re
+from django.urls import reverse
 from django.shortcuts import render,redirect
 from .models import NPO, Event
 from .forms import EventForm

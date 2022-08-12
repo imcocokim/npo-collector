@@ -6,6 +6,12 @@
 {% endblock head %}
 
 {% block content %}
+<section class="logo-container">
+  <img 
+    src="{% static 'images/main.svg' %}" 
+    alt="potato logo"
+  />
+</section>
 {% if not user.is_authenticated %}
   <section>
     <form action="{% url 'home' %}" method="post" class="login">

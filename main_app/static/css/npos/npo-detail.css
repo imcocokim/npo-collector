@@ -4,14 +4,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: var(--container-bg);
-  margin-bottom: 50px;
-  border-radius: var(--card-border-radius); */
 }
 
-.cat-img {
-  width: 75%;
-  max-width: 350px;
+.npo-img {
+  width: 50%;
+  max-width: 200px;
+  margin-right: 50px;
 }
 
 .npo-details {
@@ -38,6 +36,7 @@
 .npo-details h1 {
   font-size: var(--font-xxl);
   margin: 15px 0 3px;
+  z-index: -1;
 }
 
 .npo-details h2 {

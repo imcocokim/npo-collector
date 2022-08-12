@@ -16,9 +16,7 @@
           <a href="{% url 'npos_detail' npo.id %}">
             <div class="card-content">
               <div class="card-img-container">
-                IMAGE
-                {% comment %} add image below {% endcomment %}
-                {% comment %} <img src="" alt=""> {% endcomment %}
+                <img src="{% static 'images/sunglass.svg'%}" alt="potato in sunglasses">
               </div>
               <h2 class="card-title">{{ npo.name }}</h2>
               <p>{{ npo.get_topic_display }}</p>

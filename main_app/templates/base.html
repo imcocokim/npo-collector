@@ -13,6 +13,9 @@
   type="image/png"
   href="{% static 'images/favicon.ico' %}"
 > 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@300&display=swap" rel="stylesheet">
   {% block head %}
   {% endblock head %}
 </head>
@@ -26,12 +29,12 @@
       </div>
       <nav>
         <ul>
+          <li><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
             <li><a href="{% url 'npos_index' %}">All NPOs</a></li>
             <li><a href="{% url 'npos_create' %}">Add NPO</a></li>
             <li><a href="{% url 'logout' %}">Log out</a></li>
           {% else %}
-            <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'home' %}">Login</a></li>
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
           {% endif %}

@@ -55,16 +55,15 @@
           <tr>
             <td>{{event.date}}</td>
             <td>{{event.title}}</td>
-            <td><a href="{% url 'events_delete' event.id %}" class="btn danger">Delete</a></td>
+            <td><a href="{% url 'events_delete' event.id %}" class="btn x">X</a></td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
     {% else %}
-    <div class="subsection-content">
-      <p>No events have been added to {{ npo.name }}</p>
-    </div>
-
+      <div class="subsection-content">
+        <p>No events have been added to {{ npo.name }}</p>
+      </div>
     {% endif %}
   </section>
 </div>

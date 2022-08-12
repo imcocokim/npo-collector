@@ -16,7 +16,7 @@ Users are able to:
 #### [Click here to get a closer look to the ERD and Wireframe](https://whimsical.com/npo-collector-LyHDA2xNDopz76tc7SEyAE)
 ![ERD](./main_app/static/images/ERD.png)
 ![Wireframe](./main_app/static/images/wireframe.png)
-![Mobile Wireframe](./main_app/static/images/mobile-wireframe.png)
+![Mobile Wireframe](./main_app/static/images/mobile-wireframe.png | width=100)
 
 ### Website Preview
 ![Web Preview](./main_app/static/images/web-preview.png)

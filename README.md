@@ -20,6 +20,7 @@ Users are able to:
 
 ### Website Preview
 ![Web Preview](./main_app/static/images/web-preview.png)
+### Mobile Preview
 ![Mobile Preview](./main_app/static/images/mobile-preview.png)
 
 ## Technologies Used:

@@ -35,20 +35,20 @@
 <div class="events-container">
   <section class="events">
     <div class="subsection-title">
-      <h2>Events</h2>
+      {% comment %} <h2>Events</h2> {% endcomment %}
       {% comment %} <img src="" alt=""> {% endcomment %}
     </div>
-    <h3>Add an Event</h3>
+    <h1>Add an Event</h1>
     <form action="{% url 'add_event' npo.id %}" method="POST" class="subsection-content">
       {% csrf_token %}
       {{ event_form.as_p }}
-      <button type="submit" class="btn submit">Add Event</button>
+      <button type="submit" class="btn submit add">Add</button>
     </form>
-    <h3>Events</h3>
+    {% comment %} <h3>Events</h3> {% endcomment %}
     {% if npo.event_set.all %}
       <table>
         <thead>
-          <tr><th>Date</th><th>Events</th></tr>
+          <tr><th>Date</th><th>Events</th><th>Delete</th></tr>
         </thead>
         <tbody>
           {% for event in npo.event_set.all %}

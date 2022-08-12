@@ -41,7 +41,7 @@ body {
   --font-xl: 2.4rem;
   --font-l: 1.8rem;
   --font-reg: 1.6rem;
-  --card-border-radius: 6px;
+  --card-border-radius: 20px;
   --main-font: 'Playfair Display', serif;
   --container-bg: #F0EAD2;
 }
@@ -52,8 +52,9 @@ header {
   border-bottom: var(--borders);
 }
 
-h1{
+h1 {
   font-family: var(--main-font);
+  font-size: var(--font-xxl);
 }
 
 nav {
@@ -71,6 +72,16 @@ main {
   padding: 0 10px;
 }
 
+input,
+select,
+textarea {
+  border-radius: var(--card-border-radius);
+  background-color: var(--container-bg);
+  border: none;
+  box-shadow: var(--card-box-shadow);
+}
+
+label,
 h2 {
   font-size: var(--font-xl);
 }
@@ -116,7 +127,6 @@ nav li {
   padding: 2px 10px;
   border-radius: 50px;
   text-decoration: none;
-  /* background-color: var(--button-bg); */
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
@@ -206,7 +216,7 @@ nav li {
   }
 
   .page-header h1 {
-    font-size: var(--font-xtreme);
+    font-size: var(--font-xxl);
     font-family: var(--main-font);
   }
   

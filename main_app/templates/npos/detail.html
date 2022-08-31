@@ -54,7 +54,7 @@
           <tr>
             <td>{{event.date}}</td>
             <td>{{event.title}}</td>
-            <td><a href="{% url 'events_delete' event.id %}" class="btn x">X</a></td>
+            <td><a href="{% url 'delete_event' npo.id event.id %}" class="btn x">X</a></td>
           </tr>
           {% endfor %}
         </tbody>

@@ -10,7 +10,7 @@ urlpatterns = [
   path('npos/<int:pk>/update/', views.NPOUpdate.as_view(), name='npos_update'),
   path('npos/<int:pk>/delete/', views.NPODelete.as_view(), name='npos_delete'),
   path('npos/<int:npo_id>/add_event/', views.add_event, name='add_event'),
-  path('events/<int:pk>/delete/', views.EventDelete.as_view(), name='events_delete'),
+  path('npos/<int:npo_id>/delete_event/<int:event_id>/', views.delete_event, name='delete_event'),
   path('accounts/signup/', views.signup, name='signup'),
   
 ]

@@ -53,9 +53,11 @@ def add_event(request, npo_id):
     new_event.save()
   return redirect('npos_detail', npo_id=npo_id)
 
-class EventDelete(LoginRequiredMixin, DeleteView):
-  model = Event
-  success_url = '/npos/'
+def delete_event(request, npo_id, event_id):
+  event = Event.objects.get(id=event_id)
+  event.delete()
+  return redirect('npos_detail', npo_id=npo_id)
+
 
 def signup(request):
   error_message = ''

@@ -12,7 +12,7 @@
   box-shadow: var(--card-box-shadow);
   background-color: var(--container-bg);
   border-radius: var(--card-border-radius);
-  padding: 30px;
+  padding: 10px;
 }
 
 .card-content {

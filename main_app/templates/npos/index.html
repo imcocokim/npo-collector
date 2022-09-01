@@ -16,7 +16,15 @@
           <a href="{% url 'npos_detail' npo.id %}">
             <div class="card-content">
               <div class="card-img-container">
-                <img src="{% static 'images/sunglass.svg'%}" alt="potato in sunglasses">
+                {% if npo.photo.url %}
+                  <img 
+                  src="{{npo.photo.url}}" 
+                  alt="A photo of {{npo.name}}"
+                  class="usr-img"
+                  >
+                {% else %}
+                  <img src="{% static 'images/sunglass.svg'%}" alt="potato in sunglasses" class="tato-img">
+                {% endif %}
               </div>
               <h2 class="card-title">{{ npo.name }}</h2>
               <p>{{ npo.get_topic_display }}</p>

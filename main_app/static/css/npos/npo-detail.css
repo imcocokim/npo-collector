@@ -9,11 +9,12 @@
 .npo-img {
   width: 50%;
   max-width: 200px;
-  margin-right: 50px;
+  margin-right: 100px;
 }
 
 .npo-details {
   width: 98%;
+  margin-left: 200px;
 }
 
 .events-container {
@@ -121,7 +122,6 @@ input {
   background-color: #DDE5B6;
 }
 
-
 #file-input {
   overflow: hidden;
   position: absolute;
@@ -133,6 +133,10 @@ input {
   margin-bottom: 10px;
 }
 
+.usr-img {
+  max-width: 400px;
+}
+
 
 @media only screen and (min-width: 768px) {
   .npo-container {
@@ -142,7 +146,7 @@ input {
     justify-content: start;
   }
 
-  .cat-img {
+  .npo-img {
     width: 25%;
     max-width: 250px;
     margin-right: 25px;
@@ -160,7 +164,7 @@ input {
 }
 
 @media only screen and (min-width: 1024px) {
-  .feedings-toy-container {
+  /* .events-container {
     padding: 0 40px;
-  }
+  } */
 }

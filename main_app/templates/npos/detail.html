@@ -19,7 +19,7 @@
 <section class="npo-container">
   <div class="npo-img">
     {% if npo.photo.url %}
-      <img src="{{npo.photo.url}}" alt="Photo of {{ npo.name }}" class="usr-img">
+      <img src="{{ npo.photo.url }}" alt="Photo of {{ npo.name }}" class="usr-img">
     {% else %}
       <img src="{% static 'images/shy.svg'%}" alt="shy potato">
     {% endif %}

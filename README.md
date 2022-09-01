@@ -33,5 +33,5 @@ Users are able to:
 
 
 ## Next Steps
-- [ ] For everyone to see all the organizations added
-- [ ] Users are able to add their own photos for each organization
+- [x] For everyone to see all the organizations added
+- [x] Users are able to add their own photos for each organization

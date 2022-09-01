@@ -53,6 +53,7 @@ def add_event(request, npo_id):
     new_event.save()
   return redirect('npos_detail', npo_id=npo_id)
 
+@login_required
 def delete_event(request, npo_id, event_id):
   event = Event.objects.get(id=event_id)
   event.delete()

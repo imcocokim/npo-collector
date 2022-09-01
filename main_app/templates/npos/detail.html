@@ -36,8 +36,6 @@
 <div class="events-container">
   <section class="events">
     <div class="subsection-title">
-      {% comment %} <h2>Events</h2> {% endcomment %}
-      {% comment %} <img src="" alt=""> {% endcomment %}
     </div>
     <h1>Add an Event</h1>
     <form action="{% url 'add_event' npo.id %}" method="POST" class="subsection-content">
@@ -45,7 +43,6 @@
       {{ event_form.as_p }}
       <button type="submit" class="btn submit add">Add</button>
     </form>
-    {% comment %} <h3>Events</h3> {% endcomment %}
     {% if npo.event_set.all %}
       <table>
         <thead>
@@ -57,7 +54,9 @@
               <td>{{event.date}}</td>
               <td>{{event.title}}</td>
               {% if event.user == request.user %}
-                <td><a href="{% url 'delete_event' npo.id event.id %}" class="btn x">X</a></td> {% else %} <td>N/A</td>
+                <td><a href="{% url 'delete_event' npo.id event.id %}" class="btn x">X</a></td> 
+              {% else %} 
+                <td>N/A</td>
               {% endif %}
             </tr>
           {% endfor %}

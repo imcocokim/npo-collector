@@ -18,7 +18,7 @@ def about(request):
 
 @login_required
 def npos_index(request):
-  npos = NPO.objects.filter(user=request.user)
+  npos = NPO.objects.all()
   return render(request, 'npos/index.html', {'npos': npos})
 
 @login_required

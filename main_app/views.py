@@ -90,9 +90,9 @@ def add_photo(request, npo_id):
       s3.upload_fileobj(photo_file, BUCKET, key)
       url = f"{S3_BASE_URL}{BUCKET}/{key}"
       photo = Photo(url=url, npo_id=npo_id)
-      cat_photo = Photo.objects.filter(npo_id=npo_id)
-      if cat_photo.first():
-        cat_photo.first().delete()
+      npo_photo = Photo.objects.filter(npo_id=npo_id)
+      if npo_photo.first():
+        npo_photo.first().delete()
       photo.save()
     except Exception as err:
       print('An error occurred uploading file to S3: %s' % err)

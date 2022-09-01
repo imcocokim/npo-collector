@@ -2,11 +2,12 @@
 [Click here to get to the Deployed Link](https://npo-collector.herokuapp.com/)
 
 ## Getting Started  
-A place where non-profit organizations can be added with their events.
+A place where users can view and share non-profit organizations with descriptions, websites, purposes, and events.
 
 Users are able to:
-- create, edit, and delete non-profit organizations.
-- create and delete events related to the non-profit organizations.
+- create, edit, and delete non-profit organizations
+- create and delete events related to the non-profit organizations
+- add photo for each non-profit organization
 
 ## Planning  
 

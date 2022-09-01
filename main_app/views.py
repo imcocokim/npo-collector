@@ -1,6 +1,6 @@
 from django.urls import reverse
 from django.shortcuts import render,redirect
-from .models import NPO, Event
+from .models import NPO, Event, Photo
 from .forms import EventForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
@@ -8,6 +8,12 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+import uuid
+import boto3
+
+# Add these "constant" variables below the imports
+S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
+BUCKET = 'npo-collector'
 
 # Create your views here.
 class Home(LoginView):
@@ -74,3 +80,20 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
+
+def add_photo(request, npo_id):
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3')
+    key = uuid.uuid4().hex + photo_file.name[photo_file.name.rfind('.'):]
+    try:
+      s3.upload_fileobj(photo_file, BUCKET, key)
+      url = f"{S3_BASE_URL}{BUCKET}/{key}"
+      photo = Photo(url=url, npo_id=npo_id)
+      cat_photo = Photo.objects.filter(npo_id=npo_id)
+      if cat_photo.first():
+        cat_photo.first().delete()
+      photo.save()
+    except Exception as err:
+      print('An error occurred uploading file to S3: %s' % err)
+  return redirect('npos_detail', npo_id=npo_id)

@@ -12,5 +12,5 @@ urlpatterns = [
   path('npos/<int:npo_id>/add_event/', views.add_event, name='add_event'),
   path('npos/<int:npo_id>/delete_event/<int:event_id>/', views.delete_event, name='delete_event'),
   path('accounts/signup/', views.signup, name='signup'),
-  
+  path('npos/<int:npo_id>/add_photo/', views.add_photo, name="add_photo"),
 ]

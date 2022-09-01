@@ -18,7 +18,11 @@
 {% block content %}
 <section class="npo-container">
   <div class="npo-img">
-    <img src="{% static 'images/shy.svg'%}" alt="shy potato">
+    {% if npo.photo.url %}
+      <img src="{{npo.photo.url}}" alt="Photo of {{ npo.name }}" class="usr-img">
+    {% else %}
+      <img src="{% static 'images/shy.svg'%}" alt="shy potato">
+    {% endif %}
   </div>
   <div class="npo-details">
     <h1>{{ npo.name }}</h1>
@@ -30,6 +34,20 @@
         <a href="{% url 'npos_update' npo.id %}" class="btn warning">Edit</a>
         <a href="{% url 'npos_delete' npo.id %}" class="btn danger">Delete</a>
       </div>
+      <h3>Change {{ npo.name }}'s photo</h3>
+      <p id="file-name"></p>
+      <form 
+        action="{% url 'add_photo' npo.id %}"
+        enctype="multipart/form-data"
+        method="POST"
+      >
+        {% csrf_token %}
+        <label class="btn secondary">
+          Choose photo
+          <input type="file" name="photo-file" id="file-input">
+        </label>
+        <button type="submit" class="btn submit">Upload Photo</button>
+      </form>
     {% endif %}
   </div>
 </section>

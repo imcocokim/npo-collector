@@ -42,3 +42,10 @@ class Event(models.Model):
 
   class Meta:
     ordering = ['-date']
+
+class Photo(models.Model):
+  url = models.CharField(max_length=250)
+  npo = models.OneToOneField(NPO, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return f"Photo for npo_id: {self.npo_id} @{self.url}"

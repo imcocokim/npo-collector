@@ -49,17 +49,17 @@
     {% if npo.event_set.all %}
       <table>
         <thead>
-          <tr><th>Date</th><th>Events</th>{% if event.user == request.user %}<th>Delete</th></tr>{% endif %}
+          <tr><th>Date</th><th>Events</th><th>Delete</th></tr>
         </thead>
         <tbody>
           {% for event in npo.event_set.all %}
-          <tr>
-            <td>{{event.date}}</td>
-            <td>{{event.title}}</td>
-            {% if event.user == request.user %}
-              <td><a href="{% url 'delete_event' npo.id event.id %}" class="btn x">X</a></td>
-            {% endif %}
-          </tr>
+            <tr>
+              <td>{{event.date}}</td>
+              <td>{{event.title}}</td>
+              {% if event.user == request.user %}
+                <td><a href="{% url 'delete_event' npo.id event.id %}" class="btn x">X</a></td> {% else %} <td>N/A</td>
+              {% endif %}
+            </tr>
           {% endfor %}
         </tbody>
       </table>

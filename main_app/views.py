@@ -50,6 +50,7 @@ def add_event(request, npo_id):
   if form.is_valid():
     new_event = form.save(commit=False)
     new_event.npo_id = npo_id
+    form.instance.user = request.user
     new_event.save()
   return redirect('npos_detail', npo_id=npo_id)
 
